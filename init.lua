@@ -20,8 +20,6 @@ for name, type in vim.fs.dir(plugin_dir) do
 		local module_name = name:gsub("%.lua$", "")
 		local module = require("plugins." .. module_name)
 		local mt = getmetatable(module)
-		if module:isPlugin() == true then
-			print(module.repo)
-		end
+		print(module_name .. ': ' .. tostring(module:isPlugin()))
 	end
 end

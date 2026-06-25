@@ -2,7 +2,8 @@ local M = {}
 M.__index = M
 
 function M:isPlugin()
-	return true
+	if self.plugin == nil then return true end
+	return self.plugin
 end
 
 -- function M:getLazyConfig()
