@@ -4,6 +4,10 @@ local M = {
 	lazy = false,
 }
 
+local function nkset(shortcut, cmd, opts)
+	vim.keymap.set('n', shortcut, cmd, opts)
+end
+
 function M.config()
 	local builtin = require('telescope.builtin')
 	vim.keymap.set('n', '<C-A-p>', builtin.find_files, {})
@@ -13,13 +17,7 @@ function M.config()
 		builtin.gre_string({ search = vim.fn.input("Grep > ") })
 	end)
 	vim.keymap.set('n', '<leader>vh', builtin.help_tags, {})
-end
 
-local function nkset(shortcut, cmd, opts)
-	vim.keymap.set('n', shortcut, cmd, opts)
-end
-
-function M.setKeymaps()
 	-- Telescope Mappings
 	local builtin = require('telescope.builtin')
 	nkset('C-p', function ()

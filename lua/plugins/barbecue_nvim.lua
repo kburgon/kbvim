@@ -8,19 +8,19 @@ local M = {
 	},
 }
 
-function M.registerAutoCommand()
+local function setAutocommands()
 	vim.api.nvim_create_autocmd(
 		"BufEnter",
 		{
 			pattern = "*",
 			callback = function ()
-				require('babecue.ui').toggle(true)
+				require('barbecue.ui').toggle(true)
 			end
 		}
 	)
 end
 
-function M.setKeymaps()
+local function setKeymaps()
 	vim.keymap.set(
 		'n',
 		'gp',
@@ -31,6 +31,11 @@ function M.setKeymaps()
 			desc = "Navigate to the last entry in Barbecue's menu (navigate to the parent of the line of code)"
 		}
 	)
+end
+
+function M.config()
+	setAutocommands()
+	setKeymaps()
 end
 
 return M

@@ -1,28 +1,28 @@
 local M = {
 	'nvim-treesitter/nvim-treesitter-context',
-	config = function ()
-		require('treesitter-context').setup{
-			enable = true,
-			max_lines = 0,
-			min_window_height = 0,
-			line_numbers = true,
-			multiline_threshold = 20,
-			trim_scope = 'outer',
-			mode = 'cursor',
-			separator = nil,
-			zindex = 20,
-			on_attach = nil
-		}
-
-		vim.cmd'hi TreesitterContextBottom gui=underline guisp=Grey'
-		vim.cmd'hi TreesitterContextLineNumberBottom gui=underline guisp=Grey'
-	end
 }
 
-function M.setKeymaps()
+function M.config()
+	local ts_context = require'treesitter-context'
+	ts_context.setup{
+		enable = true,
+		max_lines = 0,
+		min_window_height = 0,
+		line_numbers = true,
+		multiline_threshold = 20,
+		trim_scope = 'outer',
+		mode = 'cursor',
+		separator = nil,
+		zindex = 20,
+		on_attach = nil
+	}
+
 	vim.keymap.set('n', '[c', function ()
-		require('treesitter-context').go_to_context(vim.v.count1)
+		ts_context.go_to_context(vim.v.count1)
 	end, { silent = true} )
+
+	vim.cmd'hi TreesitterContextBottom gui=underline guisp=Grey'
+	vim.cmd'hi TreesitterContextLineNumberBottom gui=underline guisp=Grey'
 end
 
 return M
