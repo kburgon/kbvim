@@ -11,7 +11,8 @@ local M = {
 	dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
 }
 
-function setKeymaps()
+function M.setKeymaps()
+	print('setting oil keymaps')
 	vim.keymap.set('n', '-', function () require("oil").toggle_float() end)	
 	vim.keymap.set('n', '_', function () require("oil").toggle_float(vim.fn.getcwd()) end)
 end

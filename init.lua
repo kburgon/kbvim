@@ -21,8 +21,8 @@ for name, file_type in vim.fs.dir(plugin_dir) do
 		local module_name = name:gsub("%.lua$", "")
 		local module = require("plugins." .. module_name)
 		table.insert(lazy_plugins, module)
-		if type(module.setKeymap) == "function" then
-			table.insert(set_keymap_funcs, module.setKeymap)
+		if type(module.setKeymaps) == "function" then
+			table.insert(set_keymap_funcs, module.setKeymaps)
 		end
 	end
 end
