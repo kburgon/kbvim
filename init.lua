@@ -1,4 +1,4 @@
-require'var_settings' -- Note: this must run first to capture the leadere key
+require'var_settings' -- Note: this must run first to capture the leader key
 require'keymaps'
 
 -- Clone Lazy.nvim if not found

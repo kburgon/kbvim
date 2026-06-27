@@ -20,3 +20,13 @@ nkset('<leader>cc', function()
 	end
 end)
 
+-- Buffer/QFList Navigation
+nkset('<leader>y', '<cmd>bn<cr>')
+nkset('<leader>l', '<cmd>bp<cr>')
+nkset('<leader>;', '<cmd>cn<cr>')
+nkset('<leader>j', '<cmd>cp<cr>')
+
+-- Miscellaneous actions
+nkset('<leader>x', '<cmd>bd<cr>')
+nkset('<leader>nt', '<cmd>tabedit %<cr>')
+
