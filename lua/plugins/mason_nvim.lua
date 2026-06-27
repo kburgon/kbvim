@@ -1,7 +1,10 @@
 local M = {
 	'williamboman/mason.nvim',
 	lazy = false,
-	dependencies = { 'williamboman/mason-lspconfig.nvim' },
+	dependencies = { 
+		'williamboman/mason-lspconfig.nvim',
+		'neovim/nvim-lspconfig'
+	},
 }
 
 function M.config()
@@ -12,7 +15,18 @@ function M.config()
 		}
 	})
 
-	require("mason-lspconfig").setup()
+	require("mason-lspconfig").setup {
+		ensure_installed = {
+			"lua_ls",
+			"marksman",
+			"sqlls",
+			"ts_ls",
+			"yamlls",
+			"tailwindcss",
+			"pylsp"
+		}
+	}
+
 	local lsps = {
 		{ 'lua_ls' },
 		{ 'marksman' },
@@ -21,8 +35,7 @@ function M.config()
 		{ 'yamlls' },
 		{ 'tailwindcss' },
 		{ 'gopls' },
-		{ 'pylsp'},
-		{ 'pyright'},
+		{ 'pylsp' },
 		{
 			'roslyn',
 			config = {
@@ -68,7 +81,7 @@ function M.config()
 	}
 
 	for _, lsp in pairs(lsps) do 
-		local name, config = lsp[1], lsp[2]
+		local name, config = lsp[1], lsp.config
 		vim.lsp.enable(name)
 		if config then
 			vim.lsp.config(name, config)
