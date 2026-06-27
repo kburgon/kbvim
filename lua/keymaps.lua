@@ -30,3 +30,7 @@ nkset('<leader>j', '<cmd>cp<cr>')
 nkset('<leader>x', '<cmd>bd<cr>')
 nkset('<leader>nt', '<cmd>tabedit %<cr>')
 
+-- Generic git settings
+nkset('<leader>gps', function ()
+	require('git_actions_config').pushToOrigin()
+end, { desc = "Push changes to the remote repository" })

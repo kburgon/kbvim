@@ -9,3 +9,5 @@ function M.pushToOrigin()
 
 	vim.cmd('G push origin ' .. c_branch)
 end
+
+return M
