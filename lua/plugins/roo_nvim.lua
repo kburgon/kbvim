@@ -3,6 +3,10 @@ local M = {
 	lazy = false,
 }
 
+local function nkset(shortcut, cmd, opts)
+	vim.keymap.set('n', shortcut, cmd, opts)
+end
+
 function M.config()
 	for i = 1, 9, 1 do
 		nkset('<leader>s'..i, function ()

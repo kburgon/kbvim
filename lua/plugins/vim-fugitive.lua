@@ -8,7 +8,6 @@ local function nkset(shortcut, cmd, opts)
 end
 
 function M.config()
-	print('setting fugitive keymaps')
 	nkset('<leader>gg', '<cmd>G<cr>')
 	nkset('<leader>gpl', '<cmd>G pull<cr>')
 	nkset('<leader>gps', function ()

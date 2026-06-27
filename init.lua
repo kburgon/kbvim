@@ -1,3 +1,6 @@
+require'var_settings' -- Note: this must run first to capture the leadere key
+require'keymaps'
+
 -- Clone Lazy.nvim if not found
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -26,3 +29,4 @@ for name, file_type in vim.fs.dir(plugin_dir) do
 end
 
 require('lazy').setup(lazy_plugins)
+
